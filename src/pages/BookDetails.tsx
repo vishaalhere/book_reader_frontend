@@ -67,7 +67,6 @@ const BookDetails = () => {
   const fileType = ['application/pdf']
   const handleFiles = (e: any)=>{
     let selectedFile = e.target.files[0];
-    console.log("<<<<<<<<<<<<",e.target.files[0])
     if(selectedFile && fileType.includes(selectedFile.type)){
       let reader = new FileReader();
       reader.readAsDataURL(selectedFile);
@@ -78,7 +77,7 @@ const BookDetails = () => {
       setFiles(null)
     }
   }
-  {console.log("<<<<<<<<<<<<<<<<<files",files)}
+
   return (
     <div className={`${classes.container}`}>
       {book && Object.keys(book).length > 0 && <div className={`${classes.content}`}>
@@ -127,11 +126,11 @@ const BookDetails = () => {
         </div>
       </div>}
 
-      <Worker workerUrl='https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js'>
+      {/* <Worker workerUrl='https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js'> */}
         {/* @ts-ignore  */}
         
-        {showPdf && <Viewer fileUrl={files} plugins={[newplugin]} />}
-      </Worker>
+        {/* {showPdf && <Viewer fileUrl={files} plugins={[newplugin]} />} */}
+      {/* </Worker> */}
     </div>
   )
 }
