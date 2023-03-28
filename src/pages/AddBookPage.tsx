@@ -69,7 +69,8 @@ const AddBook = () => {
       formData.append('author', author);
       formData.append('readTime', readTime);
       formData.append('description', description);
-      formData.append('cover', image);
+      // @ts-ignore 
+      formData.append('cover', image.toString());
       formData.append('pdf', pdfFile);
 
       const resp = await addBook(formData);
