@@ -1,13 +1,10 @@
-import React from 'react'
-import Book from '../components/Book'
-import AddIcon from '@mui/icons-material/Add';
-import { Link } from 'react-router-dom'
+import Book from '../components/Book';
 import AddBook from '../components/AddBook';
 import { useBooks } from '../context/useBooks';
+import { bookInterface } from '../context/booksContext';
 
 const Home = () => {
   const { books } = useBooks();
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   const classes = {
     container: 'flex items-center justify-center w-full',
     content: 'w-[90%] mt-16',
@@ -24,8 +21,8 @@ const Home = () => {
           <span className={classes.headingText}>My Books</span>
         </div>
         <div className={classes.booksContainer}>
-          {books?.map((ele, i) => {
-            return (<Book book={ele} />)
+          {books?.map((ele:bookInterface, i) => {
+            return (<Book key={ele.id} book={ele} />)
           })}
           <AddBook />
         </div>

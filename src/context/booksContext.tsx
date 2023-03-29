@@ -1,19 +1,17 @@
 import { createContext, useEffect, useState } from "react";
-// @ts-ignore 
-import { booksData } from "../data.js";
 import { getAllBooks } from "../service.js";
 
-interface bookInterface {
-  id: string,
+export interface bookInterface {
+  id: number,
   name: string,
   author: string,
   readTime: string,
   description: string,
   rating:number,
-  cover: Blob,
-  pdf: Blob,
+  cover: any,
+  pdf: any,
 }
-interface booksInterface {
+export interface booksInterface {
   books: [bookInterface]
 }
 const defaultProvider = {
@@ -22,14 +20,14 @@ const defaultProvider = {
   setChanged: (value: boolean) => null,
   setBooks: (books: booksInterface) => null,
   currentBook: {
-    id: "string",
+    id: 0,
     name: "string",
     author: "string",
     readTime: "string",
     description: "string",
     rating:0,
-    cover: "string",
-    pdf: "string",
+    cover: "any",
+    pdf: "any",
   },
   setCurrentBook: (book: bookInterface) => null
 };
@@ -53,7 +51,7 @@ const BooksProvider = ({ children }: any) => {
     getBooks()
   }, [changed])
 
-  const values = {
+  const values:any = {
     books,
     setBooks,
     currentBook,
@@ -63,7 +61,6 @@ const BooksProvider = ({ children }: any) => {
   };
 
   return (
-    // @ts-ignore 
     <BooksContext.Provider value={values}> {children} </BooksContext.Provider>
   );
 };
