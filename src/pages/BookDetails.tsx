@@ -172,13 +172,13 @@ const BookDetails = () => {
                 Page {pageNumber} of {numPages}
               </p>
             </div>}
-            {
+            {/* {
               showPdf && <div className='border-2 border-green-500' style={{ height: '750px' }}>
               <Viewer
                 fileUrl={pdfUrl}
               />
             </div>
-            }
+            } */}
           </div>
         </div>
       </div>}
